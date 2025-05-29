@@ -2,15 +2,14 @@ package com.caualandrade;
 
 public class SacreStrategy implements FinancingStrategy{
 
-
     @Override
     public void calculate(double amount, double annualInterestRate, int months) {
         double monthlyRate = Math.pow(1 + annualInterestRate / 100, 1.0 / 12) - 1;
         double amortization = amount / months;
         double balance = amount;
-        double growth = 0.003; // Crescimento de 0.3% ao mês
+        double growth = 0.003;
 
-        double installment = (amortization + (amount * monthlyRate)) * 0.85; // Inicial 15% mais leve
+        double installment = (amortization + (amount * monthlyRate)) * 0.85;
 
         System.out.println("\n--- SACRE ---");
         for (int i = 1; i <= months; i++) {
